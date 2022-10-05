@@ -1,0 +1,8 @@
+@font-face {
+    font-family:noveltees ;
+    src: url('Font/Frunchy.woff') format('woff');
+}
+.MID{
+    background-image: url("mode.jpg");
+
+}
