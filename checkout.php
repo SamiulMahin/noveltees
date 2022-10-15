@@ -168,8 +168,11 @@ if(isset($_GET['customer_id'])){
            <div class="col-12 d-grid">
     <input name="submit" type="submit" class="btn btn-success" value="Place an order" >
   </div>
-  <a href="">Shippng Policy</a>
-  <a href="">Return Policy</a>
+
+
+  
+  <a href="shipping_policy.php">Shipping  Policy</a>
+  <a href="return_policy.php">Return Policy</a>
         </form>
 
 

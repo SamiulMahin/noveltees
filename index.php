@@ -29,6 +29,103 @@ if(!$conn){
  
   <div  style="background-color:black;font-family: noveltees, sans-serif; 
     font-size:25px;">
+
+
+
+<!-- Search Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content " style="width: 500px;height:250px;background-color:#30D5C8;">
+      
+      <div class="modal-body" >
+        <br><br>
+      <center>
+        <form action="serach_result.php" method="POST">
+        <div class="input-group mb-3" style="width:300px;">
+        <input name="inp" type="text" class="form-control fw-bold fs-3" placeholder="Search Products" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-dark" type="submit" name="search" id="button-addon2"><i class="fas fa-search"></i></button>
+
+        </form>
+      
+      </div>
+      </center>
+      </div>
+    
+    </div>
+  </div>
+</div> 
+
+
+
+
+
+
+    <!-- Pop Up -->
+<!-- Vertically centered modal -->
+<div class="modal" id="MyModal1" style="border-radius:30px;">
+<div class="modal-dialog modal-dialog-centered" > 
+
+
+<div class="modal-dialog" >
+    <div class="modal-content" >
+   
+      <div class="modal-body" style="width: 400px;background-color:#30D5C8;">
+      <br>
+      <center><img style="width:200px;" src="imeges/logo.png" alt=""></center>
+      <br>
+      <center><span style="color:#dc1abe; font-size:50px; font-weight:bold;">Get 10% Discount on your first order</span></center>
+      <br>
+      <center><a href="contact_us.php"><button  class="btn btn-outline-dark rounded-pill fs-3 w-50 fw-bold">Let's do it!</button></a></center>
+      <br>
+      
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+    <!-- Slider -->
+    <div class=" slider1 ">
+   <?php 
+
+$sql ="SELECT image from slider";
+$data = mysqli_query($conn, $sql);
+$check_result= mysqli_num_rows($data)> 0;
+if($check_result){
+  while( $rows = mysqli_fetch_array( $data ) ) 
+  {
+      ?>
+
+<div class="card" style="width:18rem;background-color:black; padding:10px; color:white; ">
+
+  <img src="Admin/novel-tees_admin/imeges/<?php echo $rows ['image']?>" class="card-img-top" style="height:400px;" alt="...">
+  <div class="card-body">
+
+    
+  </div>
+
+</div>
+
+<?php
+    }
+}
+else{
+   die("Can not execute query");
+}
+?>	
+   </div>
+
+
+
+
      <!-- Part1 -->
   <div style="background-image: url('imeges/mode.jpg');background-position: center;
 background-repeat: no-repeat;
@@ -45,7 +142,7 @@ background-size: cover;" class="MID " >
                 unset($_SESSION['lout_status']);
               }
             ?>
-    <div class="row"  style="padding-top:150px;padding-bottom:50px;height:800px">
+    <div class="row"  style="padding-top:100px;padding-bottom:50px;height:800px">
           <div  class="col-12 col-md-6 col-sm-4 p-3">
           <div style="display:flex; justify-content: center;align-items: center;flex-direction: column; text-align:center;background-color:black; border-radius:20px;height:600px;" >
         <span   style="color:#30D5C8; font-size:70px; font-weight:bold;">Welcome To Novel-Tees Customs</span>
@@ -267,7 +364,25 @@ else{
     // instead of a settings object
   ]
 });
-	
+
+$('.slider1').slick({
+  autoplay: true,
+  autoplaySpeed: 2000
+});
+
+
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    if(localStorage.getItem('#MyModal1')!=='true')
+    {
+      $('#MyModal1').modal('show');
+    }
+    localStorage.setItem('#MyModal1','true');
+  });
 </script>
 
 </body>

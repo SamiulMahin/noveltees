@@ -60,7 +60,7 @@ if(isset ($_SESSION['auth']))
 <body  style="background-color:#30d5c8;">
 
 <!-- Vertically centered modal -->
-        <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-scrollable">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">

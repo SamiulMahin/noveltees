@@ -1,7 +1,8 @@
 <?php   include 'header.php';?>
 
-<div style="background-color:black">
-<div class="container" >
+<div style="background-color:black;font-family: noveltees, sans-serif; 
+    font-size:25px;">
+<div class="container" style="padding-top:50px;">
     <div class="row" >
         <div class="col-12 col-md-8">
         <h3 style="color:#30D5C8;">novelteescustoms.com
@@ -10,7 +11,11 @@
        <strong><a style="padding-left:20px;text-decoration: none; color:white;" href="shop.php"><span > Shop All</span></a></strong>
        <strong> <a style="padding-left:20px;text-decoration: none; color:white;" href=""><span style=""> Contact Us</span></a></strong>
        <h5 style="color:#30D5C8;font-size:25px;font-weight: bold;">Inspired with you in mind</h5>
-       <br><br>
+       
+       <strong><a style="text-decoration: none; color:white;" href="shipping_policy.php"><span> SHIPPING POLICY</span></a></strong>
+       <br>
+       <strong><a style="text-decoration: none; color:white;" href="return_policy.php"><span> RETURN POLICY</span></a></strong>
+       <br>
             <form action="config/code_loop.php" method="POST">
             <div class="input-group mb-3" style="width:50%">
             <input name="email" style="background-color:black; color:white;font-size:15px;font-weight: bold;" type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2">

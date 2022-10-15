@@ -22,7 +22,7 @@ $conn = mysqli_connect('localhost','root','','noveltees');
         <h5 class="modal-title" id="exampleModalLabel">Hey there!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
       </div>
-<form action="config/code_product.php" method="POST" enctype="multipart/form-data" style="padding:20px;">
+<form action="config/code_slider.php" method="POST" enctype="multipart/form-data" style="padding:20px;">
 <div class="modal-body">
 
         <div class="form-group">
@@ -33,46 +33,7 @@ $conn = mysqli_connect('localhost','root','','noveltees');
             <label for="exampleFormControlFile1">Input image</label>
             <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Price Start</label>
-            <input name="price1" type="text"  class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Price End</label>
-            <input name="price2" type="text"  class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Category</label>
-
-            <select name="type" class="form-control" id="exampleFormControlSelect1">
-                <option  selected hidden value="">Choose an option</option>
-                <?php 
-                $sql ="SELECT * from category";
-                $data = mysqli_query($conn, $sql);
-                $check_result= mysqli_num_rows($data)> 0;
-                if($check_result){
-                while( $rows = mysqli_fetch_array( $data ) ) 
-                {
-                    ?>
-                                <option value="<?php echo $rows ['title']?>"><?php echo $rows ['title']?></option>
-                                <?php
-                    }
-                }
-                else{
-                die("Can not execute query");
-                }
-                ?>
-                            </select>
-                        </div>
-        
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Stock Status</label>
-            <select name="Stock_status" class="form-control" id="exampleFormControlSelect1">
-                <option  selected hidden value="">Choose an option</option>
-                <option value="in_stock">In Stock</option>
-                <option value="stock_out">Stock Out</option>
-            </select>
-        </div>
+       
 
    
       </div>
@@ -92,7 +53,7 @@ $conn = mysqli_connect('localhost','root','','noveltees');
         <h5 class="modal-title" id="exampleModalLabel">Hey there!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
       </div>
-<form action="config/code_product.php" method="POST" enctype="multipart/form-data" style="padding:20px;">
+<form action="config/code_slider.php" method="POST" enctype="multipart/form-data" style="padding:20px;">
 <div class="modal-body">
             <input type="hidden" name="d_id" class="delete_id">
             <p>
@@ -125,7 +86,7 @@ $conn = mysqli_connect('localhost','root','','noveltees');
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">View product</li>
+              <li class="breadcrumb-item active">View Slider</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -133,9 +94,9 @@ $conn = mysqli_connect('localhost','root','','noveltees');
     </div>
 <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Custom Product List:</h3>
+                <h3 class="card-title">Slider List:</h3>
 
-                <!-- <a href="#" data-toggle="modal" data-target="#ProModal" class="btn btn-success float-right" >Add Products</a> -->
+                <a href="#" data-toggle="modal" data-target="#ProModal" class="btn btn-success float-right" >Add Slider</a>
               </div>
 
               <!-- /.card-header -->
@@ -144,20 +105,19 @@ $conn = mysqli_connect('localhost','root','','noveltees');
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Email</th>
-                    <th>Description</th>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Image</th>
-                   
+                    <th>Tilte</th>
                     
+                    
+                    <th>Image</th>
+                    
+                    <th>Actions</th>
                   </tr>
                   </thead>
 
                   <tbody>
                   <tr>
                   <?php 
-$sql ="SELECT * from custom";
+$sql ="SELECT * from slider";
 $data = mysqli_query($conn, $sql);
 $check_result= mysqli_num_rows($data)> 0;
 if($check_result){
@@ -165,14 +125,15 @@ if($check_result){
   {
       ?>
                     <td><?php echo $rows ['id']?></td>
-                    <td><?php echo $rows ['email']?></td>
-                    <td>$<?php echo $rows ['des']?>
+                   
+                    <td><?php echo $rows ['name']?>
                     </td>
-                    <td>$<?php echo $rows ['price']?></td>
-                    <td><?php echo $rows ['quantity']?></td>
+                   
+                    
                     <td><img style="width:200px;" src="imeges/<?php echo $rows ['image']?>"></td>
                     
-                    
+                    <td>
+                    <button data-toggle="modal" data-target="#delModal" type="button" value="<?php echo $rows ['id']?>"  class="btn btn-danger deletebtn" value >Delete</button></td>
                   </tr>
                   <?php
     }

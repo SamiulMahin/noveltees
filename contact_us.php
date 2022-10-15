@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
   $sql= "INSERT INTO massage(name,email,phone,massage) VALUES('$name','$email','$phone','$msg')";
   if(mysqli_query($conn,$sql) == TRUE){
     
-    echo "Data Inserted";
+    $_SESSION['status']="Thank you for being with us!";
 
   }
   else{
@@ -47,19 +47,19 @@ if(isset($_POST['submit'])){
     
                 <div class="form-floating ">
               <input type="text" name="name" class="form-control mt-5" style="background:black;color:white;width:70%;" id="floatingInput" placeholder="Name">
-              <label for="floatingInput"style="font-family: noveltees, sans-serif; ">Name</label>
+              <label class="fs-4 fw-bold" for="floatingInput"style="font-family: noveltees, sans-serif; ">Name</label>
             </div>
             <div class="form-floating">
               <input type="email" name="email" class="form-control mt-2" style="background:black;color:white;width:70%;" id="floatingPassword" placeholder="Email*">
-              <label for="floatingInput"style="font-family: noveltees, sans-serif; ">Email</label>
+              <label class="fs-4 fw-bold" for="floatingInput"style="font-family: noveltees, sans-serif; ">Email</label>
             </div>
             <div class="form-floating">
               <input type="phone" name="phone" class="form-control mt-2" style="background:black;color:white;width:70%;" id="floatingPassword" placeholder="Phone">
-              <label for="floatingInput"style="font-family: noveltees, sans-serif; ">Phone</label>
+              <label class="fs-4 fw-bold" for="floatingInput"style="font-family: noveltees, sans-serif; ">Phone</label>
             </div>
             <div class="form-floating">
               <textarea class="form-control mt-2" style="background:black;color:white;width:70%;" placeholder="Leave a massage" id="floatingTextarea" name="msg" rows="3"></textarea>
-              <label for="floatingTextarea"style="font-family: noveltees, sans-serif; ">Massage</label>
+              <label class="fs-4 fw-bold" for="floatingTextarea"style="font-family: noveltees, sans-serif; ">Message</label>
             </div>
             <input class="mt-5" type="submit" name="submit" style="height:40px;width:150px;  font-weight:bold; border-radius:50px;background:#30D5C8; color:black;">
                 
@@ -67,6 +67,26 @@ if(isset($_POST['submit'])){
       </div>
     </div>
   </div>
+
+  <?php 
+              if(isset($_SESSION['status'])){
+                ?>
+
+                <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                  <script>
+                      Swal.fire({
+                      position: 'center',
+                      icon: 'success',
+                      title: '<?php echo $_SESSION['status'] ?>',
+                      showConfirmButton: false,
+                      timer:2500
+                    })
+                 </script>
+                <?php 
+                unset($_SESSION['status']);
+              }
+            ?>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a3253ecb96.js" crossorigin="anonymous"></script>
 </body>

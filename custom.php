@@ -18,22 +18,21 @@ if(!$conn){
     <link rel="stylesheet" href="style.css">
     <title>Custom-NovelTees</title>
 </head>
-<body style="background-color:black;font-family: noveltees, sans-serif; 
-    font-size:25px;">
+<body>
 
 
-<div style="background-position: center;
-background-repeat: no-repeat;padding-top:150px;
-background-size: cover;" class="MID " >
+<div style="padding-top:40px;background-color:black;font-family: noveltees, sans-serif; 
+    font-size:25px;
+" class="MID " >
     <div class="container">
 
-      <div class="row" style="padding-top:100px;padding-bottom:50px; height:100%;">
+      <div class="row" style="padding-top:50px;padding-bottom:50px; height:100%;">
           <div class="col-md-6 col-12 ">
-              <div style="display:flex; justify-content: center;align-items: center;flex-direction: column;text-align:center;background-color:black; border-radius:20px; background-image: url('imeges/Design.jpg'); background-repeat: no-repeat;padding-top:150px;
-background-size: cover;align-items:center;height:500px;" >
+             
                
-                
-              </div>              
+                <img  style="border-radius:20px; 
+height:700px;width:100%;" src="imeges/Design.jpg" alt="">
+                            
           </div>
           <div class="col-md-6 col-12">
              <div style="background-color:#30D5C8;border-radius:10px; opacity: 0.8; font-weight:bold; align-items:center; height:700px;">
@@ -86,3 +85,4 @@ background-size: cover;align-items:center;height:500px;" >
 
 </body>
 </html>
+<?php include 'footer.php' ?>

@@ -23,11 +23,11 @@ if(isset ($_SESSION['auth']))
     <div   style=" margin-top:100px; ">
         <div class="container" >
         <?php 
-              if(isset($_SESSION['auth_status'])){
+              if(isset($_SESSION['auth_status_U'])){
                 ?>
                 <div class="alert alert-success" role="alert"> <?php echo'<h4>'.$_SESSION['auth_status']. '</h4>'?></div>
                 <?php 
-                unset($_SESSION['auth_status']);
+                unset($_SESSION['auth_status_U']);
               }
             ?>
   <?php 

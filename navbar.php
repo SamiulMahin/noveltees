@@ -11,7 +11,7 @@ if(!$conn){
   echo mysqli_connect_error();
 }
 ?>
-<style>
+<!-- <style>
 
 *{
   margin: 0;
@@ -104,7 +104,7 @@ if(!$conn){
 .search-box .search-data.active{
   display: none;
 }
-</style>
+</style> -->
 <nav class="navbar navbar-expand-lg navbar-light  sticky-top" style="background-color:#30D5C8;height:150px;" >
   <div class="container-md" style="font-family: noveltees, sans-serif; 
     font-size:25px;" >
@@ -117,20 +117,20 @@ if(!$conn){
     </a>
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 1000px;--bs-scroll-width: 100%;background-color:#30D5C8;">
-        <li class="nav-item">
-        <strong><a class="nav-link active" aria-current="page" href="index.php">HOME</a></strong>
+        <li class="nav-item ">
+        <strong><a class="nav-link active " aria-current="page" href="index.php">HOME</a></strong>
         </li>
 
-        <li class="nav-item">
-        <strong><a class="nav-link active" aria-current="page" href="custom.php">ALL THINGS CUSTOM</a></strong>
+        <li class="nav-item pe-3">
+        <strong><a class="nav-link active " aria-current="page" href="custom.php">ALL THINGS CUSTOM</a></strong>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item pe-3">
         <strong><a class="nav-link active" aria-current="page" href="gallary.php">GALLERY</a></strong>
         </li>
 
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown pe-3">
           <a class="nav-link active  fw-bold " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
             SHOP COLLECTION
           </a>
@@ -145,22 +145,21 @@ if(!$conn){
 
       <!-- </ul>
       <ul> -->
-        <li class="nav-item">
-          <div class="d-flex" style="background-color:#30D5C8; align-items:center;">
-              <form style="align-items:center;" >
-                <div class="search-box">
-                   <input type="text" placeholder="Type to search..">
-                      <div class="search-icon">
-                         <i class="fas fa-search"></i>
-                      </div>
-                      <div class="cancel-icon">
-                      <i class="fas fa-times"></i>
-                      </div>
-                </div>
-              </form>
-          </div>
-          <li class="nav-item"  style="padding-left:70px;">  <a href="shop.php"><button style="height:40px;width:150px; border-radius:50px;background:black; color:white; ">Shop now</button></a></li>
-        <li class="nav-item pe-3 " style="padding-left:10px;" >  
+    
+
+
+
+      
+
+          <li class="nav-item pe-3"  style="padding-left:70px;"> 
+          
+          <button style="background:#30D5C8; align-items:center; font-size:20px; margin-right:5px; " type="button" class="btn shadow-lg  rounded rounded-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-search"></i>
+            </button>
+          
+          
+          <a href="shop.php"><button style="height:40px;width:150px; border-radius:50px;background:black; color:white; ">Shop now</button></a></li>
+        <li class="nav-item pe-3 "  >   
         <?php $select_rows= mysqli_query($conn, "SELECT * FROM cart where customer_id='$user_id'"); 
               $row_count = mysqli_num_rows($select_rows);
         ?>
@@ -173,7 +172,7 @@ if(!$conn){
           </span>
         </a>  
         </li>
-        <li  class="nav-item">
+        <li  class="nav-item pe-3">
         <div class="dropdown">
             <i class="fas fa-user " id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
            <?php 
@@ -226,34 +225,35 @@ if(!$conn){
   </div>
 </nav>
 <script>
-      const searchBox = document.querySelector(".search-box");
-      const searchBtn = document.querySelector(".search-icon");
-      const cancelBtn = document.querySelector(".cancel-icon");
-      const searchInput = document.querySelector("input");
-      const searchData = document.querySelector(".search-data");
-      searchBtn.onclick =()=>{
-        searchBox.classList.add("active");
-        searchBtn.classList.add("active");
-        searchInput.classList.add("active");
-        cancelBtn.classList.add("active");
-        searchInput.focus();
-        if(searchInput.value != ""){
-          var values = searchInput.value;
-          searchData.classList.remove("active");
-          searchData.innerHTML = "You just typed " + "<span style='font-weight: 500;'>" + values + "</span>";
-        }else{
-          searchData.textContent = "";
-        }
-      }
-      cancelBtn.onclick =()=>{
-        searchBox.classList.remove("active");
-        searchBtn.classList.remove("active");
-        searchInput.classList.remove("active");
-        cancelBtn.classList.remove("active");
-        searchData.classList.toggle("active");
-        searchInput.value = "";
-      }
+      // const searchBox = document.querySelector(".search-box");
+      // const searchBtn = document.querySelector(".search-icon");
+      // const cancelBtn = document.querySelector(".cancel-icon");
+      // const searchInput = document.querySelector("input");
+      // const searchData = document.querySelector(".search-data");
+      // searchBtn.onclick =()=>{
+      //   searchBox.classList.add("active");
+      //   searchBtn.classList.add("active");
+      //   searchInput.classList.add("active");
+      //   cancelBtn.classList.add("active");
+      //   searchInput.focus();
+      //   if(searchInput.value != ""){
+      //     var values = searchInput.value;
+      //     searchData.classList.remove("active");
+      //     searchData.innerHTML = "You just typed " + "<span style='font-weight: 500;'>" + values + "</span>";
+      //   }else{
+      //     searchData.textContent = "";
+      //   }
+      // }
+      // cancelBtn.onclick =()=>{
+      //   searchBox.classList.remove("active");
+      //   searchBtn.classList.remove("active");
+      //   searchInput.classList.remove("active");
+      //   cancelBtn.classList.remove("active");
+      //   searchData.classList.toggle("active");
+      //   searchInput.value = "";
+      // }
     </script>
+
 
 
 
